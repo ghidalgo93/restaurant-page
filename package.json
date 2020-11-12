@@ -1,0 +1,28 @@
+{
+  "name": "restaurant-page",
+  "version": "1.0.0",
+  "description": "a restauront page created for practice with npm, webpack, and ES6 modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack --progress --production",
+    "watch": "webpack --watch",
+    "start": "webpack serve --open firefox"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghidalgo93/restaurant-page.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ghidalgo93/restaurant-page/issues"
+  },
+  "homepage": "https://github.com/ghidalgo93/restaurant-page#readme",
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
