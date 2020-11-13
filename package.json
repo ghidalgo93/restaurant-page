@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "webpack --progress --production",
+    "build": "webpack",
     "watch": "webpack --watch",
     "start": "webpack serve --open firefox"
   },
