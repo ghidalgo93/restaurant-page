@@ -2,6 +2,7 @@ import {pageInit, contents} from './pageInit';
 import aboutTab from './aboutTab';
 import menuTab from './menuTab';
 import contactTab from './contactTab';
+import './styles.css';
 
 const contentDiv = document.querySelector('#content');
   
@@ -10,7 +11,7 @@ const about = aboutTab(contentDiv);
 const menu = menuTab(contentDiv);
 const contact = contactTab(contentDiv);
 
-//add classes, probably a better place for this
+//add button classes, probably a better place for this
 const tabBtns = document.querySelectorAll('button');
 tabBtns.forEach(btn => btn.classList.add('tabBtn'));
 

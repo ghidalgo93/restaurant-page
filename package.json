@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/ghidalgo93/restaurant-page#readme",
   "devDependencies": {
+    "css-loader": "^5.0.1",
     "jest": "^26.6.3",
+    "style-loader": "^2.0.0",
     "webpack": "^5.4.0",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0"

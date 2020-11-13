@@ -1,6 +1,6 @@
 function aboutTab(parentElem) {
 	const aboutDiv = document.createElement('div');
-	aboutDiv.innerHTML = 'Here at the Dushanbe tea house, we pride ourselves on the high quality of our tea and the incredible tea house - build in a far away land. If you are into the woo-woo Boulder shit, come check us out. We are 100% sure you would love it, and if you want we can even take some crystals we purchased across the street and soak em in your tea to give you extra powers or some shit. We will even be happy to tell you them have good juju or were left out on a full moon or some shit. For everyone else, we have high quality tea that is just plain tasty!'; 
+	aboutDiv.innerHTML = 'Welcome to the Boulder Tea and Coffee House! Our mission is to obtain and serve world class tea and coffee from our beautiful location based in sunny Boulder, Colorado. <br> <br> We have an ever growing selection of teas and coffee responsibly grown and imported from all corners of the globe. Please stop in and have a drink and find a wonderful location to relax with famliy and friends!'; 
 	aboutDiv.id = 'aboutTab'; 
 	aboutDiv.classList.add('tabContent');
 	parentElem.appendChild(aboutDiv);

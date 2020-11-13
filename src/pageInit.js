@@ -8,11 +8,12 @@ contents.push(img);
 
 //welcome line
 let headline = document.createElement('h1');
-headline.innerHTML = 'Welcome to the Dushanbe Teahouse';
+headline.innerHTML = 'Boulder Tea and Coffee House';
 contents.push(headline);
 
 //tab head 
 let tabHead = document.createElement('div'); 
+tabHead.classList.add('tab-head');
 //tab btns
 let aboutBtn = document.createElement('button');
 aboutBtn.innerHTML = 'About'; 

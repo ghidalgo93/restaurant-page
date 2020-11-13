@@ -4,6 +4,14 @@ module.exports = {
 	mode: 'development', 
 	entry: './src/index.js',
 	devtool: 'source-map', 
+	module: {
+		rules: [
+			{
+				test: /\.css$/i,
+				use: ['style-loader', 'css-loader'],
+			},
+		],
+	}, 
 	devServer: {
 		contentBase: './dist'
 	},
