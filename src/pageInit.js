@@ -16,12 +16,15 @@ let tabHead = document.createElement('div');
 //tab btns
 let aboutBtn = document.createElement('button');
 aboutBtn.innerHTML = 'About'; 
+aboutBtn.id = 'about';
 tabHead.appendChild(aboutBtn);
 let menuBtn = document.createElement('button');
 menuBtn.innerHTML = 'Menu'; 
+menuBtn.id = 'menu';
 tabHead.appendChild(menuBtn);
 let contactBtn = document.createElement('button');
 contactBtn.innerHTML = 'Contact'; 
+contactBtn.id = 'contact';
 tabHead.appendChild(contactBtn);
 
 contents.push(tabHead);
