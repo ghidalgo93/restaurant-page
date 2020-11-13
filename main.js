@@ -2,6 +2,33 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/aboutTab.js":
+/*!*************************!*\
+  !*** ./src/aboutTab.js ***!
+  \*************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+function aboutTab() {
+	const content = document.querySelector('#content'); 
+	const aboutDiv = document.createElement('div');
+	aboutDiv.innerHTML = 'about stuff'; 
+	content.appendChild(aboutDiv);
+	return content;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (aboutTab);
+
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -13,9 +40,44 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pageInit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pageInit */ "./src/pageInit.js");
+/* harmony import */ var _aboutTab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./aboutTab */ "./src/aboutTab.js");
+/* harmony import */ var _menuTab__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menuTab */ "./src/menuTab.js");
 ;
 
+
+
 (0,_pageInit__WEBPACK_IMPORTED_MODULE_0__.pageInit)(_pageInit__WEBPACK_IMPORTED_MODULE_0__.contents);
+(0,_aboutTab__WEBPACK_IMPORTED_MODULE_1__.default)();
+(0,_menuTab__WEBPACK_IMPORTED_MODULE_2__.default)();
+contactTab();
+
+
+/***/ }),
+
+/***/ "./src/menuTab.js":
+/*!************************!*\
+  !*** ./src/menuTab.js ***!
+  \************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+function menuTab() {
+	const content = document.querySelector('#content'); 
+	const menuDiv = document.createElement('div');
+	menuDiv.innerHTML = 'menu stuff'; 
+	content.appendChild(menuDiv);
+	return content;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menuTab);
+
 
 
 /***/ }),
