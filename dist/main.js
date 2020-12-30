@@ -2,14 +2,183 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/aboutTab.js":
+/*!*************************!*\
+  !*** ./src/aboutTab.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+function aboutTab(parentElem) {
+  var aboutDiv = document.createElement('div');
+  aboutDiv.innerHTML = 'Welcome to the Boulder Tea and Coffee House! Our mission is to obtain and serve world class tea and coffee from our beautiful location based in sunny Boulder, Colorado. <br> <br> We have an ever growing selection of teas and coffee responsibly grown and imported from all corners of the globe. Please stop in and have a drink and find a wonderful location to relax with famliy and friends!';
+  aboutDiv.id = 'aboutTab';
+  aboutDiv.classList.add('tabContent');
+  parentElem.appendChild(aboutDiv);
+  return aboutDiv;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (aboutTab);
+
+/***/ }),
+
+/***/ "./src/contactTab.js":
+/*!***************************!*\
+  !*** ./src/contactTab.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+function contactTab(parentElem) {
+  var contactDiv = document.createElement('div');
+  contactDiv.innerHTML = 'Address: 1234 Crystal St, Leadville, CO, 80888<br> Phone: 123456790<br> email: crystalteasoak@coffee.tea';
+  contactDiv.id = 'contactTab';
+  contactDiv.classList.add('tabContent');
+  contactDiv.style.display = 'none';
+  parentElem.appendChild(contactDiv);
+  return contactDiv;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (contactTab);
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _pageInit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pageInit */ "./src/pageInit.js");
+/* harmony import */ var _aboutTab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./aboutTab */ "./src/aboutTab.js");
+/* harmony import */ var _menuTab__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menuTab */ "./src/menuTab.js");
+/* harmony import */ var _contactTab__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./contactTab */ "./src/contactTab.js");
+/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles.css */ "./src/styles.css");
+
+
+
+
+
+var contentDiv = document.querySelector('#content');
+(0,_pageInit__WEBPACK_IMPORTED_MODULE_0__.pageInit)(_pageInit__WEBPACK_IMPORTED_MODULE_0__.contents);
+var about = (0,_aboutTab__WEBPACK_IMPORTED_MODULE_1__.default)(contentDiv);
+var menu = (0,_menuTab__WEBPACK_IMPORTED_MODULE_2__.default)(contentDiv);
+var contact = (0,_contactTab__WEBPACK_IMPORTED_MODULE_3__.default)(contentDiv); //add button classes, probably a better place for this
+
+var tabBtns = document.querySelectorAll('button');
+tabBtns.forEach(function (btn) {
+  return btn.classList.add('tabBtn');
+});
+
+function switchTab(event) {
+  //get all elements with class='tabContent' and hide them
+  var tabContent = document.querySelectorAll('.tabContent');
+  tabContent.forEach(function (tab) {
+    return tab.style.display = 'none';
+  }); //get all elements with class='tabBtn' and remove the class 'active'
+
+  var tabBtns = document.querySelectorAll('.tabBtn');
+  tabBtns.forEach(function (btn) {
+    return btn.className.replace(' active', '');
+  }); //show the current tab, and add the 'active' class to the button that opened it
+
+  var tab = document.querySelector("#".concat(event.target.id, "Tab"));
+  tab.style.display = 'block';
+  event.currentTarget.className += ' active';
+}
+
+tabBtns.forEach(function (btn) {
+  return btn.addEventListener('click', switchTab, false);
+});
+
+/***/ }),
+
+/***/ "./src/menuTab.js":
+/*!************************!*\
+  !*** ./src/menuTab.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+function menuTab(parentElem) {
+  var menuDiv = document.createElement('div');
+  menuDiv.innerHTML = 'Tea: $6.00<br> Cookies: $2.00<br> Coffee: $3.00<br> Crystal soak: priceless.';
+  menuDiv.id = 'menuTab';
+  menuDiv.style.display = 'none';
+  menuDiv.classList.add('tabContent');
+  parentElem.appendChild(menuDiv);
+  return menuDiv;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menuTab);
+
+/***/ }),
+
+/***/ "./src/pageInit.js":
+/*!*************************!*\
+  !*** ./src/pageInit.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "contents": () => /* binding */ contents,
+/* harmony export */   "pageInit": () => /* binding */ pageInit
+/* harmony export */ });
+var contents = []; //image
+
+var img = document.createElement('img');
+img.src = 'https://www.uncovercolorado.com/wp-content/uploads/2020/03/boulder_tea_house_boulder_main-e1583212520872-1536x768.jpg';
+img.alt = 'tea house';
+contents.push(img); //welcome line
+
+var headline = document.createElement('h1');
+headline.innerHTML = 'Boulder Tea and Coffee House';
+contents.push(headline); //tab head 
+
+var tabHead = document.createElement('div');
+tabHead.classList.add('tab-head'); //tab btns
+
+var aboutBtn = document.createElement('button');
+aboutBtn.innerHTML = 'About';
+aboutBtn.id = 'about';
+tabHead.appendChild(aboutBtn);
+var menuBtn = document.createElement('button');
+menuBtn.innerHTML = 'Menu';
+menuBtn.id = 'menu';
+tabHead.appendChild(menuBtn);
+var contactBtn = document.createElement('button');
+contactBtn.innerHTML = 'Contact';
+contactBtn.id = 'contact';
+tabHead.appendChild(contactBtn);
+contents.push(tabHead); //function to take in 
+
+function pageInit(contentList) {
+  var content = document.querySelector('#content');
+  contentList.forEach(function (element) {
+    return content.appendChild(element);
+  });
+  return content;
+}
+
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/styles.css":
 /*!**************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/styles.css ***!
   \**************************************************************/
-/*! namespace exports */
-/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_exports__, __webpack_require__.r, module.id, __webpack_require__.d, __webpack_require__.*, module */
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -21,7 +190,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
 // Imports
-;
+
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
@@ -36,9 +205,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, "button {\n\tbackground-color: #4CAF50;
 /*!*****************************************************!*\
   !*** ./node_modules/css-loader/dist/runtime/api.js ***!
   \*****************************************************/
-/*! unknown exports (runtime-defined) */
-/*! runtime requirements: module */
-/*! CommonJS bailout: module.exports is used directly at 9:0-14 */
 /***/ ((module) => {
 
 
@@ -114,9 +280,6 @@ module.exports = function (cssWithMappingToString) {
 /*!************************************************************************!*\
   !*** ./node_modules/css-loader/dist/runtime/cssWithMappingToString.js ***!
   \************************************************************************/
-/*! unknown exports (runtime-defined) */
-/*! runtime requirements: module */
-/*! CommonJS bailout: module.exports is used directly at 15:0-14 */
 /***/ ((module) => {
 
 
@@ -158,10 +321,6 @@ module.exports = function cssWithMappingToString(item) {
 /*!************************!*\
   !*** ./src/styles.css ***!
   \************************/
-/*! namespace exports */
-/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -171,7 +330,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_cjs_js_styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js!./styles.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles.css");
-;
+
             
 
 var options = {};
@@ -191,9 +350,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
   \****************************************************************************/
-/*! unknown exports (runtime-defined) */
-/*! runtime requirements: module, __webpack_require__.nc, __webpack_require__.* */
-/*! CommonJS bailout: module.exports is used directly at 230:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 
@@ -465,209 +621,6 @@ module.exports = function (list, options) {
     lastIdentifiers = newLastIdentifiers;
   };
 };
-
-/***/ }),
-
-/***/ "./src/aboutTab.js":
-/*!*************************!*\
-  !*** ./src/aboutTab.js ***!
-  \*************************/
-/*! namespace exports */
-/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-function aboutTab(parentElem) {
-	const aboutDiv = document.createElement('div');
-	aboutDiv.innerHTML = 'Welcome to the Boulder Tea and Coffee House! Our mission is to obtain and serve world class tea and coffee from our beautiful location based in sunny Boulder, Colorado. <br> <br> We have an ever growing selection of teas and coffee responsibly grown and imported from all corners of the globe. Please stop in and have a drink and find a wonderful location to relax with famliy and friends!'; 
-	aboutDiv.id = 'aboutTab'; 
-	aboutDiv.classList.add('tabContent');
-	parentElem.appendChild(aboutDiv);
-	return aboutDiv;
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (aboutTab);
-
-
-/***/ }),
-
-/***/ "./src/contactTab.js":
-/*!***************************!*\
-  !*** ./src/contactTab.js ***!
-  \***************************/
-/*! namespace exports */
-/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-function contactTab(parentElem) {
-		const contactDiv = document.createElement('div');
-		contactDiv.innerHTML = 'Address: 1234 Crystal St, Leadville, CO, 80888<br> Phone: 123456790<br> email: crystalteasoak@coffee.tea'; 
-		contactDiv.id = 'contactTab';
-		contactDiv.classList.add('tabContent');
-		contactDiv.style.display = 'none';
-		parentElem.appendChild(contactDiv);
-		return contactDiv;
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (contactTab);
-
-
-
-/***/ }),
-
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/*! namespace exports */
-/*! exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.* */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pageInit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pageInit */ "./src/pageInit.js");
-/* harmony import */ var _aboutTab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./aboutTab */ "./src/aboutTab.js");
-/* harmony import */ var _menuTab__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menuTab */ "./src/menuTab.js");
-/* harmony import */ var _contactTab__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./contactTab */ "./src/contactTab.js");
-/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles.css */ "./src/styles.css");
-;
-
-
-
-
-
-const contentDiv = document.querySelector('#content');
-  
-(0,_pageInit__WEBPACK_IMPORTED_MODULE_0__.pageInit)(_pageInit__WEBPACK_IMPORTED_MODULE_0__.contents);
-const about = (0,_aboutTab__WEBPACK_IMPORTED_MODULE_1__.default)(contentDiv);
-const menu = (0,_menuTab__WEBPACK_IMPORTED_MODULE_2__.default)(contentDiv);
-const contact = (0,_contactTab__WEBPACK_IMPORTED_MODULE_3__.default)(contentDiv);
-
-//add button classes, probably a better place for this
-const tabBtns = document.querySelectorAll('button');
-tabBtns.forEach(btn => btn.classList.add('tabBtn'));
-
-
-function switchTab(event) {
-	//get all elements with class='tabContent' and hide them
-	const tabContent = document.querySelectorAll('.tabContent');
-	tabContent.forEach(tab => tab.style.display = 'none');
-
-	//get all elements with class='tabBtn' and remove the class 'active'
-	const tabBtns = document.querySelectorAll('.tabBtn');
-	tabBtns.forEach(btn => btn.className.replace(' active', ''));
-	
-	//show the current tab, and add the 'active' class to the button that opened it
-	let tab = document.querySelector(`#${event.target.id}Tab`);
-	tab.style.display = 'block';
-	event.currentTarget.className += ' active';
-}
-
-
-tabBtns.forEach(btn => btn.addEventListener('click', switchTab, false));
-
-
-/***/ }),
-
-/***/ "./src/menuTab.js":
-/*!************************!*\
-  !*** ./src/menuTab.js ***!
-  \************************/
-/*! namespace exports */
-/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-function menuTab(parentElem) {
-	const menuDiv = document.createElement('div');
-	menuDiv.innerHTML = 'Tea: $6.00<br> Cookies: $2.00<br> Coffee: $3.00<br> Crystal soak: priceless.'; 
-	menuDiv.id = 'menuTab';
-	menuDiv.style.display = 'none';
-	menuDiv.classList.add('tabContent');
-	parentElem.appendChild(menuDiv);
-	return menuDiv;
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menuTab);
-
-
-
-/***/ }),
-
-/***/ "./src/pageInit.js":
-/*!*************************!*\
-  !*** ./src/pageInit.js ***!
-  \*************************/
-/*! namespace exports */
-/*! export contents [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export pageInit [provided] [no usage info] [missing usage info prevents renaming] */
-/*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "contents": () => /* binding */ contents,
-/* harmony export */   "pageInit": () => /* binding */ pageInit
-/* harmony export */ });
-let contents= [];
-
-//image
-let img = document.createElement('img');
-img.src = 'https://www.uncovercolorado.com/wp-content/uploads/2020/03/boulder_tea_house_boulder_main-e1583212520872-1536x768.jpg'; 
-img.alt = 'tea house';
-contents.push(img);
-
-//welcome line
-let headline = document.createElement('h1');
-headline.innerHTML = 'Boulder Tea and Coffee House';
-contents.push(headline);
-
-//tab head 
-let tabHead = document.createElement('div'); 
-tabHead.classList.add('tab-head');
-//tab btns
-let aboutBtn = document.createElement('button');
-aboutBtn.innerHTML = 'About'; 
-aboutBtn.id = 'about';
-tabHead.appendChild(aboutBtn);
-let menuBtn = document.createElement('button');
-menuBtn.innerHTML = 'Menu'; 
-menuBtn.id = 'menu';
-tabHead.appendChild(menuBtn);
-let contactBtn = document.createElement('button');
-contactBtn.innerHTML = 'Contact'; 
-contactBtn.id = 'contact';
-tabHead.appendChild(contactBtn);
-
-contents.push(tabHead);
-
-
-//function to take in 
-function pageInit(contentList) {
-		const content = document.querySelector('#content');
-		contentList.forEach(element => content.appendChild(element));
-		return content;
-}
-
-
-
 
 /***/ })
 
