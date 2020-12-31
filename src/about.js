@@ -1,26 +1,20 @@
+import contentModule from "./contentModule";
+
 const about = (() => {
-  const contentModule = document.createElement("div");
+  const prototype = contentModule();
+  const { contentDiv } = prototype;
 
-  const addContent = () => {
-    const menuList = document.createElement("ul");
-    const sashimi = document.createElement("li");
-    sashimi.textContent = "Sashimi";
-    const rolls = document.createElement("li");
-    rolls.textContent = "rolls";
-    menuList.appendChild(sashimi);
-    menuList.appendChild(rolls);
-    contentModule.appendChild(menuList);
+  const createContent = () => {
+    const aboutPara = document.createElement("p");
+    aboutPara.textContent = "this is a small blurb about house of Ji!";
+    return aboutPara;
   };
 
-  const load = (parentNode) => {
-    addContent();
-    contentModule.style.display = "none";
-    parentNode.appendChild(contentModule);
-  };
-  const show = () => {
-    contentModule.style.display = "block";
-  };
-  return { load, show };
+  const addContent = (() => {
+    contentDiv.appendChild(createContent());
+  })();
+
+  return { ...prototype };
 })();
 
 export default about;

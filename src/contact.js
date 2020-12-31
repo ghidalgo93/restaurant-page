@@ -1,15 +1,32 @@
-const contact = (() => {
-	const load = () => {
-		    const content = document.getElementById("content");
-		    const contactContent = document.createElement("div");
-		    contactContent.innerHTML =
-			      "Welcome to the Boulder Tea and Coffee House! Our mission is to obtain and serve world class tea and coffee from our beautiful location based in sunny Boulder, Colorado. <br> <br> We have an ever growing selection of teas and coffee responsibly grown and imported from all corners of the globe. Please stop in and have a drink and find a wonderful location to relax with famliy and friends!";
-		    content.appendChild(contactContent);
-		  
-	};
+import contentModule from "./contentModule";
 
-	  return { load  };
-	
+const contact = (() => {
+  const prototype = contentModule();
+  const { contentDiv } = prototype;
+
+  const createContent = () => {
+    const contactContent = document.createElement("div");
+    const contactList = document.createElement("ul");
+
+    const address = document.createElement("li");
+    address.textContent = "1234 Pearl St Boulder, CO 80303";
+    const hours = document.createElement("li");
+    hours.textContent = "W-Th: 12pm-4pm, 6pm-10p. F-Su: 5pm-11pm";
+    const phone = document.createElement("li");
+    phone.textContent = "(303) 123.4567";
+    contactList.appendChild(address);
+    contactList.appendChild(hours);
+    contactList.appendChild(phone);
+
+    contactContent.appendChild(contactList);
+    return contactContent;
+  };
+
+  const addContent = (() => {
+    contentDiv.appendChild(createContent());
+  })();
+
+  return { ...prototype };
 })();
 
 export default contact;

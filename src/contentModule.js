@@ -1,15 +1,14 @@
-const contentModule = (() => {
-  const module = document.createElement("div");
+const contentModule = () => {
+  const contentDiv = document.createElement("div");
 
-  const load = (addContentFunc, parentNode) => {
-    addContentFunc();
-    module.style.display = "none";
-    parentNode.appendChild(module);
+  const loadInto = (parentNode) => {
+    contentDiv.style.display = "none";
+    parentNode.appendChild(contentDiv);
   };
   const show = () => {
-    module.style.display = "block";
+    contentDiv.style.display = "block";
   };
-  return { load, show };
-})();
+  return { contentDiv, loadInto, show };
+};
 
 export default contentModule;

@@ -14,9 +14,13 @@ nav {
 h1 {
   font-size: 3em;
 }
-ul {
+
+.tabs {
   display: flex;
   list-style-type: none;
+}
+
+ul {
   font-size: 1.5em;
 }
 

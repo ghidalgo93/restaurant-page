@@ -1,21 +1,34 @@
 import "./styles.css";
 import pageInit from "./pageInit";
+import start from "./start";
 import about from "./about";
 import menu from "./menu";
 import contact from "./contact";
 import helpers from "./helpers";
 
-pageInit.load();
+pageInit.init();
 
 const content = document.getElementById("content");
+const startTab = document.getElementById("start-tab");
 const aboutTab = document.getElementById("about-tab");
 const menuTab = document.getElementById("menu-tab");
 const contactTab = document.getElementById("contact-tab");
 
-about.load(content);
-menu.load();
-contact.load();
+start.loadInto(content);
+about.loadInto(content);
+menu.loadInto(content);
+contact.loadInto(content);
 
+start.show();
+
+startTab.addEventListener(
+  "click",
+  () => {
+    helpers.hideChildren(content);
+    start.show();
+  },
+  false
+);
 aboutTab.addEventListener(
   "click",
   () => {
@@ -27,7 +40,7 @@ aboutTab.addEventListener(
 menuTab.addEventListener(
   "click",
   () => {
-    hideChildren(content);
+    helpers.hideChildren(content);
     menu.show();
   },
   false
@@ -35,7 +48,7 @@ menuTab.addEventListener(
 contactTab.addEventListener(
   "click",
   () => {
-    hideChildren(content);
+    helpers.hideChildren(content);
     contact.show();
   },
   false
