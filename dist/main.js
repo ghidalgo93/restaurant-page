@@ -2,50 +2,91 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/aboutTab.js":
-/*!*************************!*\
-  !*** ./src/aboutTab.js ***!
-  \*************************/
+/***/ "./src/about.js":
+/*!**********************!*\
+  !*** ./src/about.js ***!
+  \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-function aboutTab(parentElem) {
-  var aboutDiv = document.createElement('div');
-  aboutDiv.innerHTML = 'Welcome to the Boulder Tea and Coffee House! Our mission is to obtain and serve world class tea and coffee from our beautiful location based in sunny Boulder, Colorado. <br> <br> We have an ever growing selection of teas and coffee responsibly grown and imported from all corners of the globe. Please stop in and have a drink and find a wonderful location to relax with famliy and friends!';
-  aboutDiv.id = 'aboutTab';
-  aboutDiv.classList.add('tabContent');
-  parentElem.appendChild(aboutDiv);
-  return aboutDiv;
-}
+var about = function () {
+  var aboutContent = document.createElement("div");
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (aboutTab);
+  var load = function load() {
+    var content = document.getElementById("content");
+    aboutContent.style.display = "none";
+    aboutContent.innerHTML = "about content";
+    content.appendChild(aboutContent);
+  };
+
+  var show = function show() {
+    aboutContent.style.display = "block";
+  };
+
+  return {
+    load: load,
+    show: show
+  };
+}();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (about);
 
 /***/ }),
 
-/***/ "./src/contactTab.js":
-/*!***************************!*\
-  !*** ./src/contactTab.js ***!
-  \***************************/
+/***/ "./src/contact.js":
+/*!************************!*\
+  !*** ./src/contact.js ***!
+  \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-function contactTab(parentElem) {
-  var contactDiv = document.createElement('div');
-  contactDiv.innerHTML = 'Address: 1234 Crystal St, Leadville, CO, 80888<br> Phone: 123456790<br> email: crystalteasoak@coffee.tea';
-  contactDiv.id = 'contactTab';
-  contactDiv.classList.add('tabContent');
-  contactDiv.style.display = 'none';
-  parentElem.appendChild(contactDiv);
-  return contactDiv;
-}
+var contact = function () {
+  var load = function load() {
+    var content = document.getElementById("content");
+    var contactContent = document.createElement("div");
+    contactContent.innerHTML = "Welcome to the Boulder Tea and Coffee House! Our mission is to obtain and serve world class tea and coffee from our beautiful location based in sunny Boulder, Colorado. <br> <br> We have an ever growing selection of teas and coffee responsibly grown and imported from all corners of the globe. Please stop in and have a drink and find a wonderful location to relax with famliy and friends!";
+    content.appendChild(contactContent);
+  };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (contactTab);
+  return {
+    load: load
+  };
+}();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (contact);
+
+/***/ }),
+
+/***/ "./src/helpers.js":
+/*!************************!*\
+  !*** ./src/helpers.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+var helpers = function () {
+  var hideChildren = function hideChildren(parentNode) {
+    var children = parentNode.childNodes;
+    children.forEach(function (child) {
+      child.style.display = "none";
+    });
+  };
+
+  return {
+    hideChildren: hideChildren
+  };
+}();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (helpers);
 
 /***/ }),
 
@@ -56,71 +97,65 @@ function contactTab(parentElem) {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pageInit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pageInit */ "./src/pageInit.js");
-/* harmony import */ var _aboutTab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./aboutTab */ "./src/aboutTab.js");
-/* harmony import */ var _menuTab__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menuTab */ "./src/menuTab.js");
-/* harmony import */ var _contactTab__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./contactTab */ "./src/contactTab.js");
-/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles.css */ "./src/styles.css");
+/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ "./src/styles.css");
+/* harmony import */ var _pageInit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pageInit */ "./src/pageInit.js");
+/* harmony import */ var _about__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./about */ "./src/about.js");
+/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./menu */ "./src/menu.js");
+/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./contact */ "./src/contact.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers */ "./src/helpers.js");
 
 
 
 
 
-var contentDiv = document.querySelector('#content');
-(0,_pageInit__WEBPACK_IMPORTED_MODULE_0__.pageInit)(_pageInit__WEBPACK_IMPORTED_MODULE_0__.contents);
-var about = (0,_aboutTab__WEBPACK_IMPORTED_MODULE_1__.default)(contentDiv);
-var menu = (0,_menuTab__WEBPACK_IMPORTED_MODULE_2__.default)(contentDiv);
-var contact = (0,_contactTab__WEBPACK_IMPORTED_MODULE_3__.default)(contentDiv); //add button classes, probably a better place for this
 
-var tabBtns = document.querySelectorAll('button');
-tabBtns.forEach(function (btn) {
-  return btn.classList.add('tabBtn');
-});
-
-function switchTab(event) {
-  //get all elements with class='tabContent' and hide them
-  var tabContent = document.querySelectorAll('.tabContent');
-  tabContent.forEach(function (tab) {
-    return tab.style.display = 'none';
-  }); //get all elements with class='tabBtn' and remove the class 'active'
-
-  var tabBtns = document.querySelectorAll('.tabBtn');
-  tabBtns.forEach(function (btn) {
-    return btn.className.replace(' active', '');
-  }); //show the current tab, and add the 'active' class to the button that opened it
-
-  var tab = document.querySelector("#".concat(event.target.id, "Tab"));
-  tab.style.display = 'block';
-  event.currentTarget.className += ' active';
-}
-
-tabBtns.forEach(function (btn) {
-  return btn.addEventListener('click', switchTab, false);
-});
+_pageInit__WEBPACK_IMPORTED_MODULE_1__.default.load();
+_about__WEBPACK_IMPORTED_MODULE_2__.default.load();
+_menu__WEBPACK_IMPORTED_MODULE_3__.default.load();
+_contact__WEBPACK_IMPORTED_MODULE_4__.default.load();
+var content = document.getElementById("content");
+var aboutTab = document.getElementById("about-tab");
+var menuTab = document.getElementById("menu-tab");
+var contactTab = document.getElementById("contact-tab");
+aboutTab.addEventListener("click", function () {
+  _helpers__WEBPACK_IMPORTED_MODULE_5__.default.hideChildren(content);
+  _about__WEBPACK_IMPORTED_MODULE_2__.default.show();
+}, false);
+menuTab.addEventListener("click", function () {
+  hideChildren(content);
+  _menu__WEBPACK_IMPORTED_MODULE_3__.default.show();
+}, false);
+contactTab.addEventListener("click", function () {
+  hideChildren(content);
+  _contact__WEBPACK_IMPORTED_MODULE_4__.default.show();
+}, false);
 
 /***/ }),
 
-/***/ "./src/menuTab.js":
-/*!************************!*\
-  !*** ./src/menuTab.js ***!
-  \************************/
+/***/ "./src/menu.js":
+/*!*********************!*\
+  !*** ./src/menu.js ***!
+  \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-function menuTab(parentElem) {
-  var menuDiv = document.createElement('div');
-  menuDiv.innerHTML = 'Tea: $6.00<br> Cookies: $2.00<br> Coffee: $3.00<br> Crystal soak: priceless.';
-  menuDiv.id = 'menuTab';
-  menuDiv.style.display = 'none';
-  menuDiv.classList.add('tabContent');
-  parentElem.appendChild(menuDiv);
-  return menuDiv;
-}
+var menu = function () {
+  var load = function load() {
+    var content = document.getElementById("content");
+    var menuContent = document.createElement("div");
+    menuContent.innerHTML = "Welcome to the Boulder Tea and Coffee House! Our mission is to obtain and serve world class tea and coffee from our beautiful location based in sunny Boulder, Colorado. <br> <br> We have an ever growing selection of teas and coffee responsibly grown and imported from all corners of the globe. Please stop in and have a drink and find a wonderful location to relax with famliy and friends!";
+    content.appendChild(menuContent);
+  };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menuTab);
+  return {
+    load: load
+  };
+}();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menu);
 
 /***/ }),
 
@@ -132,46 +167,59 @@ function menuTab(parentElem) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "contents": () => /* binding */ contents,
-/* harmony export */   "pageInit": () => /* binding */ pageInit
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-var contents = []; //image
+var pageInit = function () {
+  var app = document.getElementById("app");
+  var imgUrl = "https://savorjapan.com/gg/content_image/t0117_001_20180822085728.jpg";
 
-var img = document.createElement('img');
-img.src = 'https://www.uncovercolorado.com/wp-content/uploads/2020/03/boulder_tea_house_boulder_main-e1583212520872-1536x768.jpg';
-img.alt = 'tea house';
-contents.push(img); //welcome line
+  var load = function load() {
+    // header
+    var header = document.createElement("header");
+    var navBar = document.createElement("nav");
+    var name = document.createElement("h1");
+    name.textContent = "House of Ji";
+    var tabs = document.createElement("ul");
+    var aboutTab = document.createElement("li");
+    aboutTab.id = "about-tab";
+    aboutTab.textContent = "About";
+    var menuTab = document.createElement("li");
+    menuTab.id = "menu-tab";
+    menuTab.textContent = "Menu";
+    var contactTab = document.createElement("li");
+    contactTab.id = "contact-tab";
+    contactTab.textContent = "Contact";
+    tabs.appendChild(aboutTab);
+    tabs.appendChild(menuTab);
+    tabs.appendChild(contactTab);
+    navBar.appendChild(name);
+    navBar.appendChild(tabs);
+    header.appendChild(navBar); // content window
 
-var headline = document.createElement('h1');
-headline.innerHTML = 'Boulder Tea and Coffee House';
-contents.push(headline); //tab head 
+    var content = document.createElement("div");
+    content.id = "content"; // init content
 
-var tabHead = document.createElement('div');
-tabHead.classList.add('tab-head'); //tab btns
+    var initContent = document.createElement("div");
+    initContent.id = "init-content";
+    var image = document.createElement("img");
+    image.src = imgUrl;
+    image.alt = "japanese tea house";
+    var blurb = document.createElement("p");
+    blurb.textContent = "Ichi-go Ichi-e";
+    initContent.appendChild(image);
+    initContent.appendChild(blurb);
+    content.appendChild(initContent); // app
 
-var aboutBtn = document.createElement('button');
-aboutBtn.innerHTML = 'About';
-aboutBtn.id = 'about';
-tabHead.appendChild(aboutBtn);
-var menuBtn = document.createElement('button');
-menuBtn.innerHTML = 'Menu';
-menuBtn.id = 'menu';
-tabHead.appendChild(menuBtn);
-var contactBtn = document.createElement('button');
-contactBtn.innerHTML = 'Contact';
-contactBtn.id = 'contact';
-tabHead.appendChild(contactBtn);
-contents.push(tabHead); //function to take in 
+    app.appendChild(header);
+    app.appendChild(content);
+  };
 
-function pageInit(contentList) {
-  var content = document.querySelector('#content');
-  contentList.forEach(function (element) {
-    return content.appendChild(element);
-  });
-  return content;
-}
+  return {
+    load: load
+  };
+}();
 
-
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (pageInit);
 
 /***/ }),
 
@@ -194,7 +242,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "button {\n\tbackground-color: #4CAF50; /* Green */\n\tborder: none;\n\tcolor: white;\n\tpadding: 15px 32px;\n\ttext-align: center;\n\ttext-decoration: none;\n\tdisplay: inline-block;\n\tfont-size: 16px;\n\ttransition-duration: 0.4s;\n}\n\nbutton:hover {\n\tbackground-color: white; \n\tcolor: #4CAF50; /* Green */\n}\n\n.tad-head {\n\tbackground-color: blue;\n}\n", "",{"version":3,"sources":["webpack://./src/styles.css"],"names":[],"mappings":"AAAA;CACC,yBAAyB,EAAE,UAAU;CACrC,YAAY;CACZ,YAAY;CACZ,kBAAkB;CAClB,kBAAkB;CAClB,qBAAqB;CACrB,qBAAqB;CACrB,eAAe;CACf,yBAAyB;AAC1B;;AAEA;CACC,uBAAuB;CACvB,cAAc,EAAE,UAAU;AAC3B;;AAEA;CACC,sBAAsB;AACvB","sourcesContent":["button {\n\tbackground-color: #4CAF50; /* Green */\n\tborder: none;\n\tcolor: white;\n\tpadding: 15px 32px;\n\ttext-align: center;\n\ttext-decoration: none;\n\tdisplay: inline-block;\n\tfont-size: 16px;\n\ttransition-duration: 0.4s;\n}\n\nbutton:hover {\n\tbackground-color: white; \n\tcolor: #4CAF50; /* Green */\n}\n\n.tad-head {\n\tbackground-color: blue;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  margin: 0;\n  font-family: \"Nothing You Could Do\", cursive;\n  font-family: \"Open Sans Condensed\", sans-serif;\n  font-family: \"Work Sans\", sans-serif;\n}\n\nnav {\n  display: flex;\n  align-items: center;\n}\n\nh1 {\n  font-size: 3em;\n}\nul {\n  display: flex;\n  list-style-type: none;\n  font-size: 1.5em;\n}\n\nli {\n  padding: 1em;\n}\n", "",{"version":3,"sources":["webpack://./src/styles.css"],"names":[],"mappings":"AAAA;;EAEE,SAAS;EACT,4CAA4C;EAC5C,8CAA8C;EAC9C,oCAAoC;AACtC;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,cAAc;AAChB;AACA;EACE,aAAa;EACb,qBAAqB;EACrB,gBAAgB;AAClB;;AAEA;EACE,YAAY;AACd","sourcesContent":["html,\nbody {\n  margin: 0;\n  font-family: \"Nothing You Could Do\", cursive;\n  font-family: \"Open Sans Condensed\", sans-serif;\n  font-family: \"Work Sans\", sans-serif;\n}\n\nnav {\n  display: flex;\n  align-items: center;\n}\n\nh1 {\n  font-size: 3em;\n}\nul {\n  display: flex;\n  list-style-type: none;\n  font-size: 1.5em;\n}\n\nli {\n  padding: 1em;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

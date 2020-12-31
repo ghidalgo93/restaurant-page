@@ -6,14 +6,15 @@ import contact from "./contact";
 import helpers from "./helpers";
 
 pageInit.load();
-about.load();
-menu.load();
-contact.load();
 
 const content = document.getElementById("content");
 const aboutTab = document.getElementById("about-tab");
 const menuTab = document.getElementById("menu-tab");
 const contactTab = document.getElementById("contact-tab");
+
+about.load(content);
+menu.load();
+contact.load();
 
 aboutTab.addEventListener(
   "click",

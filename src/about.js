@@ -1,16 +1,25 @@
 const about = (() => {
-  const aboutContent = document.createElement("div");
+  const contentModule = document.createElement("div");
 
-  const load = () => {
-    const content = document.getElementById("content");
-    aboutContent.style.display = "none";
-    aboutContent.innerHTML = "about content";
-    content.appendChild(aboutContent);
+  const addContent = () => {
+    const menuList = document.createElement("ul");
+    const sashimi = document.createElement("li");
+    sashimi.textContent = "Sashimi";
+    const rolls = document.createElement("li");
+    rolls.textContent = "rolls";
+    menuList.appendChild(sashimi);
+    menuList.appendChild(rolls);
+    contentModule.appendChild(menuList);
+  };
+
+  const load = (parentNode) => {
+    addContent();
+    contentModule.style.display = "none";
+    parentNode.appendChild(contentModule);
   };
   const show = () => {
-    aboutContent.style.display = "block";
+    contentModule.style.display = "block";
   };
-
   return { load, show };
 })();
 
