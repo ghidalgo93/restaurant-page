@@ -5,7 +5,12 @@ const contentModule = () => {
     contentDiv.style.display = "none";
     parentNode.appendChild(contentDiv);
   };
-  const show = () => {
+
+  const show = (parentNode) => {
+    const children = parentNode.childNodes;
+    children.forEach((child) => {
+      child.style.display = "none";
+    });
     contentDiv.style.display = "block";
   };
   return { contentDiv, loadInto, show };
