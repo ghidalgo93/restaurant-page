@@ -34,6 +34,8 @@ const menu = (() => {
     const rollsContent = rolls();
     rollsContent.loadInto(menuWindow);
 
+    sashimiContent.show(menuWindow);
+
     sashimiTab.onmouseenter = () => sashimiContent.show(menuWindow);
     nigiriTab.onmouseenter = () => nigiriContent.show(menuWindow);
     rollsTab.onmouseenter = () => rollsContent.show(menuWindow);

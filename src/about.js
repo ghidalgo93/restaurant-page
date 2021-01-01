@@ -34,6 +34,8 @@ const about = (() => {
     const storyContent = story();
     storyContent.loadInto(tabContent);
 
+    missionContent.show(tabContent);
+
     missionTab.onmouseenter = () => missionContent.show(tabContent);
     promiseTab.onmouseenter = () => promiseContent.show(tabContent);
     storyTab.onmouseenter = () => storyContent.show(tabContent);

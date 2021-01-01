@@ -1,18 +1,44 @@
 html,
 body {
   margin: 0;
-  font-family: "Nothing You Could Do", cursive;
-  font-family: "Open Sans Condensed", sans-serif;
-  font-family: "Work Sans", sans-serif;
+  height: 100%;
+  font-family: "Varela Round", sans-serif;
+  background-image: url("https://chillhop.com/wp-content/uploads/2019/09/4714a035230f599a0a58cd16d2571b5d6b269f77.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #dbdada;
+}
+
+#app {
+  height: 100%;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
 }
 
 nav {
   display: flex;
   align-items: center;
+  height: 5em;
+  justify-content: space-evenly;
+  background-color: #1c3a5c;
 }
 
 h1 {
+  font-family: "Chango", cursive;
+  font-size: 2em;
+  color: #f094b1;
+}
+
+h2 {
+  color: #f094b1;
+  font-family: "Chango", cursive;
   font-size: 3em;
+  text-shadow: 4px 4px ;
 }
 
 .tabs {
@@ -21,9 +47,23 @@ h1 {
 }
 
 ul {
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 li {
+  padding: 1em;
+}
+
+li:hover {
+  font-weight: bold;
+  color: #f094b1;
+}
+
+.splash {
+  background-color: black;
+  font-size: 2em;
+  font-weight: bold;
+  border-radius: 5px;
+  opacity: 0.5;
   padding: 1em;
 }

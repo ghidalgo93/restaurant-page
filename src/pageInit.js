@@ -2,12 +2,9 @@ import contentModule from "./contentModule";
 
 const pageInit = (() => {
   const app = document.getElementById("app");
-  const imgUrl =
-    "https://savorjapan.com/gg/content_image/t0117_001_20180822085728.jpg";
 
   const init = () => {
-    // header
-    const header = document.createElement("header");
+    // nav
     const navBar = document.createElement("nav");
     const name = document.createElement("h1");
     name.textContent = "House of Ji";
@@ -28,12 +25,11 @@ const pageInit = (() => {
     tabs.appendChild(contactTab);
     navBar.appendChild(name);
     navBar.appendChild(tabs);
-    header.appendChild(navBar);
     // content window
     const content = document.createElement("div");
     content.id = "content";
     // app
-    app.appendChild(header);
+    app.appendChild(navBar);
     app.appendChild(content);
   };
 
