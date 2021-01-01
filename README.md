@@ -1,7 +1,7 @@
 # A simple Restaurant Web Page
 A simple restaurant web page with a clean and simple interface, nothing too fancy, basic tab based navigation.
 
-[Project Page] ()
+[Project Page] (https://gerardohidalgo.com/restaurant-page/)
 
 ## Personal Notes
 This web page was created as a simple project to practice developing with modules made available by the module bundler WebPack, npm package manager, the transpiler babel, and using npm as a task runner as well. 
