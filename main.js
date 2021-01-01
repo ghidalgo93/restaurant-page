@@ -12,27 +12,195 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
+/* harmony import */ var _contentModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./contentModule */ "./src/contentModule.js");
+/* harmony import */ var _aboutItems_mission__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./aboutItems/mission */ "./src/aboutItems/mission.js");
+/* harmony import */ var _aboutItems_promise__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./aboutItems/promise */ "./src/aboutItems/promise.js");
+/* harmony import */ var _aboutItems_story__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./aboutItems/story */ "./src/aboutItems/story.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
 var about = function () {
-  var aboutContent = document.createElement("div");
+  var prototype = (0,_contentModule__WEBPACK_IMPORTED_MODULE_0__.default)();
+  var contentDiv = prototype.contentDiv;
 
-  var load = function load() {
-    var content = document.getElementById("content");
-    aboutContent.style.display = "none";
-    aboutContent.innerHTML = "about content";
-    content.appendChild(aboutContent);
-  };
+  var addContent = function () {
+    var tabs = document.createElement("ul");
+    tabs.id = "about-tabs";
+    tabs.classList.add("tabs");
+    tabs.classList.add("tabHeader");
+    var missionTab = document.createElement("li");
+    missionTab.textContent = "Mission";
+    var promiseTab = document.createElement("li");
+    promiseTab.textContent = "Promise";
+    var storyTab = document.createElement("li");
+    storyTab.textContent = "Story";
+    tabs.appendChild(missionTab);
+    tabs.appendChild(promiseTab);
+    tabs.appendChild(storyTab);
+    var splash = document.createElement("div");
+    splash.classList.add("splash");
+    var missionContent = (0,_aboutItems_mission__WEBPACK_IMPORTED_MODULE_1__.default)();
+    missionContent.loadInto(splash);
+    var promiseContent = (0,_aboutItems_promise__WEBPACK_IMPORTED_MODULE_2__.default)();
+    promiseContent.loadInto(splash);
+    var storyContent = (0,_aboutItems_story__WEBPACK_IMPORTED_MODULE_3__.default)();
+    storyContent.loadInto(splash);
+    missionContent.show(splash);
 
-  var show = function show() {
-    aboutContent.style.display = "block";
-  };
+    missionTab.onclick = function () {
+      return missionContent.show(splash);
+    };
 
-  return {
-    load: load,
-    show: show
-  };
+    promiseTab.onclick = function () {
+      return promiseContent.show(splash);
+    };
+
+    storyTab.onclick = function () {
+      return storyContent.show(splash);
+    };
+
+    contentDiv.appendChild(tabs);
+    contentDiv.appendChild(splash);
+  }();
+
+  return _objectSpread({}, prototype);
 }();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (about);
+
+/***/ }),
+
+/***/ "./src/aboutItems/mission.js":
+/*!***********************************!*\
+  !*** ./src/aboutItems/mission.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _contentModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../contentModule */ "./src/contentModule.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var mission = function mission() {
+  var prototype = (0,_contentModule__WEBPACK_IMPORTED_MODULE_0__.default)();
+  var contentDiv = prototype.contentDiv;
+
+  var createContent = function createContent() {
+    var content = document.createElement("div");
+    var para = document.createElement("p");
+    para.textContent = "Our mission is to serve the very best sushi Colorado has to offer. We are obbessed with authentic flavors, the ingenuity to take those flavors to new heights, and at atmosphere that trancends the basic dining experience. At the House of Ji we use fish from around the world, focusing primarily on the local ecosystem so you can truly experience the flavors of Colorado. Welcome to our Home.";
+    content.appendChild(para);
+    return content;
+  };
+
+  var addContent = function () {
+    contentDiv.appendChild(createContent());
+  }();
+
+  return _objectSpread({}, prototype);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (mission);
+
+/***/ }),
+
+/***/ "./src/aboutItems/promise.js":
+/*!***********************************!*\
+  !*** ./src/aboutItems/promise.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _contentModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../contentModule */ "./src/contentModule.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var promise = function promise() {
+  var prototype = (0,_contentModule__WEBPACK_IMPORTED_MODULE_0__.default)();
+  var contentDiv = prototype.contentDiv;
+
+  var createContent = function createContent() {
+    var content = document.createElement("div");
+    var para = document.createElement("p");
+    para.textContent = "We promise to only bring sustainable ingrediants to your table. We understand that serving you incredible food must start with a responsibility to our earth. Without this understanding we cannot serve the high quality food we strive for every day. We promise to always be completely transparent with our sources and list our farmers and fishers; because without them we could not bring you food we are proud of. We promise to start with local foods, and make sure that everyone in our resource chain is treated and payed correctly. Thank you.";
+    content.appendChild(para);
+    return content;
+  };
+
+  var addContent = function () {
+    contentDiv.appendChild(createContent());
+  }();
+
+  return _objectSpread({}, prototype);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (promise);
+
+/***/ }),
+
+/***/ "./src/aboutItems/story.js":
+/*!*********************************!*\
+  !*** ./src/aboutItems/story.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _contentModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../contentModule */ "./src/contentModule.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var story = function story() {
+  var prototype = (0,_contentModule__WEBPACK_IMPORTED_MODULE_0__.default)();
+  var contentDiv = prototype.contentDiv;
+
+  var createContent = function createContent() {
+    var content = document.createElement("div");
+    var para = document.createElement("p");
+    para.textContent = "We started as a small group of friends who met in undergrad at the University of Colorado, Boulder. We came to Boulder from all accross the globe with a wide rage of interests, but we all loved doing 1 thing in particular - eating incredible sushi. After university, we all went our seperate ways for a handful of years and ended up coming together for a motorcycle trip accross Japan. We all rediscovered our love for Sushi and decided that we would go back to the US and open a sushi restaurant using all of our seperate skills to create an incredible experience from incredible sources. We hope that we can share the culmination of our hopes and dreams with YOU!";
+    content.appendChild(para);
+    return content;
+  };
+
+  var addContent = function () {
+    contentDiv.appendChild(createContent());
+  }();
+
+  return _objectSpread({}, prototype);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (story);
 
 /***/ }),
 
@@ -46,47 +214,83 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-var contact = function () {
-  var load = function load() {
-    var content = document.getElementById("content");
-    var contactContent = document.createElement("div");
-    contactContent.innerHTML = "Welcome to the Boulder Tea and Coffee House! Our mission is to obtain and serve world class tea and coffee from our beautiful location based in sunny Boulder, Colorado. <br> <br> We have an ever growing selection of teas and coffee responsibly grown and imported from all corners of the globe. Please stop in and have a drink and find a wonderful location to relax with famliy and friends!";
-    content.appendChild(contactContent);
-  };
+/* harmony import */ var _contentModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./contentModule */ "./src/contentModule.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-  return {
-    load: load
-  };
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var contact = function () {
+  var prototype = (0,_contentModule__WEBPACK_IMPORTED_MODULE_0__.default)();
+  var contentDiv = prototype.contentDiv;
+
+  var addContent = function () {
+    var contactUs = document.createElement("div");
+    contactUs.textContent = "Contact Us";
+    contactUs.classList.add("tabHeader");
+    var splash = document.createElement("div");
+    splash.classList.add("splash");
+    var contactList = document.createElement("ul");
+    var address = document.createElement("li");
+    address.textContent = "1234 Pearl St Boulder, CO 80303";
+    var hours = document.createElement("li");
+    hours.textContent = "W-Th: 12pm-4pm, 6pm-10p. F-Su: 5pm-11pm";
+    var phone = document.createElement("li");
+    phone.textContent = "(303) 123.4567";
+    contactList.appendChild(address);
+    contactList.appendChild(hours);
+    contactList.appendChild(phone);
+    splash.appendChild(contactList);
+    contentDiv.appendChild(contactUs);
+    contentDiv.appendChild(splash);
+  }();
+
+  return _objectSpread({}, prototype);
 }();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (contact);
 
 /***/ }),
 
-/***/ "./src/helpers.js":
-/*!************************!*\
-  !*** ./src/helpers.js ***!
-  \************************/
+/***/ "./src/contentModule.js":
+/*!******************************!*\
+  !*** ./src/contentModule.js ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-var helpers = function () {
-  var hideChildren = function hideChildren(parentNode) {
+var contentModule = function contentModule() {
+  var contentDiv = document.createElement("div");
+
+  var loadInto = function loadInto(parentNode) {
+    contentDiv.style.display = "none";
+    parentNode.appendChild(contentDiv);
+  };
+
+  var show = function show(parentNode) {
     var children = parentNode.childNodes;
     children.forEach(function (child) {
       child.style.display = "none";
     });
+    contentDiv.style.display = "flex";
+    contentDiv.style.flexFlow = "column";
+    contentDiv.classList.add("tabContent");
   };
 
   return {
-    hideChildren: hideChildren
+    contentDiv: contentDiv,
+    loadInto: loadInto,
+    show: show
   };
-}();
+};
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (helpers);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (contentModule);
 
 /***/ }),
 
@@ -99,36 +303,71 @@ var helpers = function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ "./src/styles.css");
 /* harmony import */ var _pageInit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pageInit */ "./src/pageInit.js");
-/* harmony import */ var _about__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./about */ "./src/about.js");
-/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./menu */ "./src/menu.js");
-/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./contact */ "./src/contact.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers */ "./src/helpers.js");
+/* harmony import */ var _start__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./start */ "./src/start.js");
+/* harmony import */ var _about__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./about */ "./src/about.js");
+/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./menu */ "./src/menu.js");
+/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./contact */ "./src/contact.js");
 
 
 
 
 
 
-_pageInit__WEBPACK_IMPORTED_MODULE_1__.default.load();
-_about__WEBPACK_IMPORTED_MODULE_2__.default.load();
-_menu__WEBPACK_IMPORTED_MODULE_3__.default.load();
-_contact__WEBPACK_IMPORTED_MODULE_4__.default.load();
+_pageInit__WEBPACK_IMPORTED_MODULE_1__.default.init(); // page elems
+
 var content = document.getElementById("content");
+var startTab = document.getElementById("start-tab");
 var aboutTab = document.getElementById("about-tab");
 var menuTab = document.getElementById("menu-tab");
 var contactTab = document.getElementById("contact-tab");
-aboutTab.addEventListener("click", function () {
-  _helpers__WEBPACK_IMPORTED_MODULE_5__.default.hideChildren(content);
-  _about__WEBPACK_IMPORTED_MODULE_2__.default.show();
-}, false);
-menuTab.addEventListener("click", function () {
-  hideChildren(content);
-  _menu__WEBPACK_IMPORTED_MODULE_3__.default.show();
-}, false);
-contactTab.addEventListener("click", function () {
-  hideChildren(content);
-  _contact__WEBPACK_IMPORTED_MODULE_4__.default.show();
-}, false);
+var allTabs = document.querySelectorAll(".tab"); // load all content
+
+_start__WEBPACK_IMPORTED_MODULE_2__.default.loadInto(content);
+_about__WEBPACK_IMPORTED_MODULE_3__.default.loadInto(content);
+_menu__WEBPACK_IMPORTED_MODULE_4__.default.loadInto(content);
+_contact__WEBPACK_IMPORTED_MODULE_5__.default.loadInto(content);
+var orderBtn = document.getElementById("order-btn"); // show start content
+
+_start__WEBPACK_IMPORTED_MODULE_2__.default.show(content); // events
+
+startTab.onclick = function () {
+  allTabs.forEach(function (tab) {
+    return tab.classList.remove("tabSelect");
+  });
+  _start__WEBPACK_IMPORTED_MODULE_2__.default.show(content);
+};
+
+aboutTab.onclick = function (e) {
+  allTabs.forEach(function (tab) {
+    return tab.classList.remove("tabSelect");
+  });
+  e.target.classList.add("tabSelect");
+  _about__WEBPACK_IMPORTED_MODULE_3__.default.show(content);
+};
+
+menuTab.onclick = function (e) {
+  allTabs.forEach(function (tab) {
+    return tab.classList.remove("tabSelect");
+  });
+  e.target.classList.add("tabSelect");
+  _menu__WEBPACK_IMPORTED_MODULE_4__.default.show(content);
+};
+
+contactTab.onclick = function (e) {
+  allTabs.forEach(function (tab) {
+    return tab.classList.remove("tabSelect");
+  });
+  e.target.classList.add("tabSelect");
+  _contact__WEBPACK_IMPORTED_MODULE_5__.default.show(content);
+};
+
+orderBtn.onclick = function () {
+  allTabs.forEach(function (tab) {
+    return tab.classList.remove("tabSelect");
+  });
+  menuTab.classList.add("tabSelect");
+  _menu__WEBPACK_IMPORTED_MODULE_4__.default.show(content);
+};
 
 /***/ }),
 
@@ -142,20 +381,240 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-var menu = function () {
-  var load = function load() {
-    var content = document.getElementById("content");
-    var menuContent = document.createElement("div");
-    menuContent.innerHTML = "Welcome to the Boulder Tea and Coffee House! Our mission is to obtain and serve world class tea and coffee from our beautiful location based in sunny Boulder, Colorado. <br> <br> We have an ever growing selection of teas and coffee responsibly grown and imported from all corners of the globe. Please stop in and have a drink and find a wonderful location to relax with famliy and friends!";
-    content.appendChild(menuContent);
-  };
+/* harmony import */ var _contentModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./contentModule */ "./src/contentModule.js");
+/* harmony import */ var _menuItems_ramen__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menuItems/ramen */ "./src/menuItems/ramen.js");
+/* harmony import */ var _menuItems_nigiri__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menuItems/nigiri */ "./src/menuItems/nigiri.js");
+/* harmony import */ var _menuItems_rolls__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./menuItems/rolls */ "./src/menuItems/rolls.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-  return {
-    load: load
-  };
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+var menu = function () {
+  var prototype = (0,_contentModule__WEBPACK_IMPORTED_MODULE_0__.default)();
+  var contentDiv = prototype.contentDiv;
+
+  var addContent = function () {
+    var menuList = document.createElement("ul");
+    menuList.id = "menu-tabs";
+    menuList.classList.add("tabs");
+    menuList.classList.add("tabHeader");
+    var ramenTab = document.createElement("li");
+    ramenTab.textContent = "Ramen";
+    var rollsTab = document.createElement("li");
+    rollsTab.textContent = "Rolls";
+    var nigiriTab = document.createElement("li");
+    nigiriTab.textContent = "Nigiri";
+    menuList.appendChild(ramenTab);
+    menuList.appendChild(nigiriTab);
+    menuList.appendChild(rollsTab);
+    var splash = document.createElement("div");
+    splash.classList.add("splash");
+    var ramenContent = (0,_menuItems_ramen__WEBPACK_IMPORTED_MODULE_1__.default)();
+    ramenContent.loadInto(splash);
+    var nigiriContent = (0,_menuItems_nigiri__WEBPACK_IMPORTED_MODULE_2__.default)();
+    nigiriContent.loadInto(splash);
+    var rollsContent = (0,_menuItems_rolls__WEBPACK_IMPORTED_MODULE_3__.default)();
+    rollsContent.loadInto(splash);
+    ramenContent.show(splash);
+
+    ramenTab.onclick = function () {
+      return ramenContent.show(splash);
+    };
+
+    nigiriTab.onclick = function () {
+      return nigiriContent.show(splash);
+    };
+
+    rollsTab.onclick = function () {
+      return rollsContent.show(splash);
+    };
+
+    contentDiv.appendChild(menuList);
+    contentDiv.appendChild(splash);
+  }();
+
+  return _objectSpread({}, prototype);
 }();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menu);
+
+/***/ }),
+
+/***/ "./src/menuItems/nigiri.js":
+/*!*********************************!*\
+  !*** ./src/menuItems/nigiri.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _contentModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../contentModule */ "./src/contentModule.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var nigiri = function nigiri() {
+  var imgUrl = "https://i.pinimg.com/originals/54/ec/8a/54ec8a6f8c691e76a10b29e70d00683b.gif";
+  var prototype = (0,_contentModule__WEBPACK_IMPORTED_MODULE_0__.default)();
+  var contentDiv = prototype.contentDiv;
+
+  var createContent = function createContent() {
+    var content = document.createElement("div");
+    content.style.display = "flex";
+    var list = document.createElement("ul");
+    var salmon = document.createElement("li");
+    salmon.textContent = "Salmon";
+    var tuna = document.createElement("li");
+    tuna.textContent = "Tuna";
+    var whitefin = document.createElement("li");
+    whitefin.textContent = "White Fin";
+    list.appendChild(salmon);
+    list.appendChild(tuna);
+    list.appendChild(whitefin);
+    var img = document.createElement("img");
+    img.src = imgUrl;
+    img.alt = "nigiri";
+    content.appendChild(img);
+    content.appendChild(list);
+    return content;
+  };
+
+  var addContent = function () {
+    contentDiv.appendChild(createContent());
+  }();
+
+  return _objectSpread({}, prototype);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (nigiri);
+
+/***/ }),
+
+/***/ "./src/menuItems/ramen.js":
+/*!********************************!*\
+  !*** ./src/menuItems/ramen.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _contentModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../contentModule */ "./src/contentModule.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var ramen = function ramen() {
+  var imgUrl = "https://cdn.wallpapersafari.com/59/76/PQ18L5.jpg";
+  var prototype = (0,_contentModule__WEBPACK_IMPORTED_MODULE_0__.default)();
+  var contentDiv = prototype.contentDiv;
+
+  var createContent = function createContent() {
+    var content = document.createElement("div");
+    content.style.display = "flex";
+    var list = document.createElement("ul");
+    var miso = document.createElement("li");
+    miso.textContent = "Miso broth";
+    var tonkotsu = document.createElement("li");
+    tonkotsu.textContent = "Tonkotsu, pork bone broth";
+    var onomichi = document.createElement("li");
+    onomichi.textContent = "Onomichi, fish and shoyu broth";
+    list.appendChild(miso);
+    list.appendChild(tonkotsu);
+    list.appendChild(onomichi);
+    var img = document.createElement("img");
+    img.src = imgUrl;
+    img.alt = "ramen dawg";
+    content.appendChild(img);
+    content.appendChild(list);
+    return content;
+  };
+
+  var addContent = function () {
+    contentDiv.appendChild(createContent());
+  }();
+
+  return _objectSpread({}, prototype);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ramen);
+
+/***/ }),
+
+/***/ "./src/menuItems/rolls.js":
+/*!********************************!*\
+  !*** ./src/menuItems/rolls.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _contentModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../contentModule */ "./src/contentModule.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var rolls = function rolls() {
+  var imgUrl = "https://i.pinimg.com/originals/9d/1c/cf/9d1ccfcdeb976ba07e1e6565a5bd6654.png";
+  var prototype = (0,_contentModule__WEBPACK_IMPORTED_MODULE_0__.default)();
+  var contentDiv = prototype.contentDiv;
+
+  var createContent = function createContent() {
+    var content = document.createElement("div");
+    content.style.display = "flex";
+    var list = document.createElement("ul");
+    var salmon = document.createElement("li");
+    salmon.textContent = "Salmon Skin Roll";
+    var tuna = document.createElement("li");
+    tuna.textContent = "Spicy Tuna Roll";
+    var unagi = document.createElement("li");
+    unagi.textContent = "Sweet Unagi Roll";
+    var spider = document.createElement("li");
+    spider.textContent = "Spider Roll";
+    list.appendChild(salmon);
+    list.appendChild(tuna);
+    list.appendChild(unagi);
+    list.appendChild(spider);
+    var img = document.createElement("img");
+    img.src = imgUrl;
+    img.alt = "rolls";
+    content.appendChild(img);
+    content.appendChild(list);
+    return content;
+  };
+
+  var addContent = function () {
+    contentDiv.appendChild(createContent());
+  }();
+
+  return _objectSpread({}, prototype);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (rolls);
 
 /***/ }),
 
@@ -169,57 +628,104 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
+/* harmony import */ var _contentModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./contentModule */ "./src/contentModule.js");
+
+
 var pageInit = function () {
   var app = document.getElementById("app");
-  var imgUrl = "https://savorjapan.com/gg/content_image/t0117_001_20180822085728.jpg";
 
-  var load = function load() {
-    // header
-    var header = document.createElement("header");
+  var init = function init() {
+    // nav
     var navBar = document.createElement("nav");
     var name = document.createElement("h1");
     name.textContent = "House of Ji";
+    name.id = "start-tab";
     var tabs = document.createElement("ul");
+    tabs.classList.add("tabs");
     var aboutTab = document.createElement("li");
     aboutTab.id = "about-tab";
+    aboutTab.classList.add("tab");
     aboutTab.textContent = "About";
     var menuTab = document.createElement("li");
     menuTab.id = "menu-tab";
+    menuTab.classList.add("tab");
     menuTab.textContent = "Menu";
     var contactTab = document.createElement("li");
     contactTab.id = "contact-tab";
+    contactTab.classList.add("tab");
     contactTab.textContent = "Contact";
     tabs.appendChild(aboutTab);
     tabs.appendChild(menuTab);
     tabs.appendChild(contactTab);
     navBar.appendChild(name);
-    navBar.appendChild(tabs);
-    header.appendChild(navBar); // content window
+    navBar.appendChild(tabs); // content window
 
     var content = document.createElement("div");
-    content.id = "content"; // init content
+    content.id = "content"; // app
 
-    var initContent = document.createElement("div");
-    initContent.id = "init-content";
-    var image = document.createElement("img");
-    image.src = imgUrl;
-    image.alt = "japanese tea house";
-    var blurb = document.createElement("p");
-    blurb.textContent = "Ichi-go Ichi-e";
-    initContent.appendChild(image);
-    initContent.appendChild(blurb);
-    content.appendChild(initContent); // app
-
-    app.appendChild(header);
+    app.appendChild(navBar);
     app.appendChild(content);
   };
 
   return {
-    load: load
+    init: init
   };
 }();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (pageInit);
+
+/***/ }),
+
+/***/ "./src/start.js":
+/*!**********************!*\
+  !*** ./src/start.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _contentModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./contentModule */ "./src/contentModule.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var start = function () {
+  var prototype = (0,_contentModule__WEBPACK_IMPORTED_MODULE_0__.default)();
+  var contentDiv = prototype.contentDiv;
+
+  var addContent = function () {
+    var welcome = document.createElement("h2");
+    welcome.textContent = "Welcome to Ji's House";
+    welcome.classList.add("tabHeader");
+    var splash = document.createElement("div");
+    splash.classList.add("splash");
+    var splashList = document.createElement("ul");
+    var address = document.createElement("li");
+    address.textContent = "1234 Pearl St Boulder, CO 80303";
+    var hours = document.createElement("li");
+    hours.textContent = "W-Th: 12pm-4pm, 6pm-10p. F-Su: 5pm-11pm";
+    var orderBtn = document.createElement("button");
+    orderBtn.id = "order-btn";
+    orderBtn.textContent = "Order Now";
+    orderBtn.textContent = "Order Now";
+    splashList.appendChild(address);
+    splashList.appendChild(hours);
+    splash.appendChild(orderBtn);
+    splash.appendChild(splashList);
+    contentDiv.appendChild(welcome);
+    contentDiv.appendChild(splash);
+  }();
+
+  return _objectSpread({}, prototype);
+}();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (start);
 
 /***/ }),
 
@@ -242,7 +748,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  margin: 0;\n  font-family: \"Nothing You Could Do\", cursive;\n  font-family: \"Open Sans Condensed\", sans-serif;\n  font-family: \"Work Sans\", sans-serif;\n}\n\nnav {\n  display: flex;\n  align-items: center;\n}\n\nh1 {\n  font-size: 3em;\n}\nul {\n  display: flex;\n  list-style-type: none;\n  font-size: 1.5em;\n}\n\nli {\n  padding: 1em;\n}\n", "",{"version":3,"sources":["webpack://./src/styles.css"],"names":[],"mappings":"AAAA;;EAEE,SAAS;EACT,4CAA4C;EAC5C,8CAA8C;EAC9C,oCAAoC;AACtC;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,cAAc;AAChB;AACA;EACE,aAAa;EACb,qBAAqB;EACrB,gBAAgB;AAClB;;AAEA;EACE,YAAY;AACd","sourcesContent":["html,\nbody {\n  margin: 0;\n  font-family: \"Nothing You Could Do\", cursive;\n  font-family: \"Open Sans Condensed\", sans-serif;\n  font-family: \"Work Sans\", sans-serif;\n}\n\nnav {\n  display: flex;\n  align-items: center;\n}\n\nh1 {\n  font-size: 3em;\n}\nul {\n  display: flex;\n  list-style-type: none;\n  font-size: 1.5em;\n}\n\nli {\n  padding: 1em;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  margin: 0;\n  height: 100%;\n  font-family: \"Varela Round\", sans-serif;\n  background-image: url(\"https://chillhop.com/wp-content/uploads/2019/09/4714a035230f599a0a58cd16d2571b5d6b269f77.jpg\");\n  background-repeat: no-repeat;\n  background-size: cover;\n  color: #dbdada;\n}\n\n#app {\n  height: 100%;\n}\n\n#content {\n  height: 90%;\n}\n\n.tabContent {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100%;\n}\n\nnav {\n  display: flex;\n  align-items: center;\n  height: 5em;\n  justify-content: space-evenly;\n  background-color: #1c3a5c;\n}\n\nh1 {\n  font-family: \"Chango\", cursive;\n  font-size: 2em;\n  color: #f094b1;\n}\n\n.tabHeader {\n  color: #f094b1;\n  font-family: \"Chango\", cursive;\n  font-size: 3em;\n  text-shadow: 4px 4px #1c3a5c;\n}\n\n.tabs {\n  display: flex;\n  list-style-type: none;\n}\n\n.tabSelect {\n  color: #f094b1;\n}\n\nul {\n  font-size: 1em;\n}\n\nli {\n  padding: 1em;\n}\n\nli:hover {\n  font-weight: bold;\n  color: #f094b1;\n}\n\n.splash {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: black;\n  font-size: 1.5em;\n  font-weight: bold;\n  border-radius: 5px;\n  opacity: 0.5;\n  padding: 1em;\n  width: 50%;\n}\n\nimg {\n  height: 10em;\n  width: 10em;\n  border-radius: 5px;\n}\nbutton {\n  border: none;\n  border-radius: 5px;\n  font-size: 1.5em;\n  color: #1c3a5c;\n  background-color: #dbdada;\n  font-family: \"Chango\", cursive;\n  height: 2em;\n}\nbutton:hover {\n  color: #f094b1;\n}\n", "",{"version":3,"sources":["webpack://./src/styles.css"],"names":[],"mappings":"AAAA;;EAEE,SAAS;EACT,YAAY;EACZ,uCAAuC;EACvC,qHAAqH;EACrH,4BAA4B;EAC5B,sBAAsB;EACtB,cAAc;AAChB;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,YAAY;AACd;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,WAAW;EACX,6BAA6B;EAC7B,yBAAyB;AAC3B;;AAEA;EACE,8BAA8B;EAC9B,cAAc;EACd,cAAc;AAChB;;AAEA;EACE,cAAc;EACd,8BAA8B;EAC9B,cAAc;EACd,4BAA4B;AAC9B;;AAEA;EACE,aAAa;EACb,qBAAqB;AACvB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,iBAAiB;EACjB,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,uBAAuB;EACvB,gBAAgB;EAChB,iBAAiB;EACjB,kBAAkB;EAClB,YAAY;EACZ,YAAY;EACZ,UAAU;AACZ;;AAEA;EACE,YAAY;EACZ,WAAW;EACX,kBAAkB;AACpB;AACA;EACE,YAAY;EACZ,kBAAkB;EAClB,gBAAgB;EAChB,cAAc;EACd,yBAAyB;EACzB,8BAA8B;EAC9B,WAAW;AACb;AACA;EACE,cAAc;AAChB","sourcesContent":["html,\nbody {\n  margin: 0;\n  height: 100%;\n  font-family: \"Varela Round\", sans-serif;\n  background-image: url(\"https://chillhop.com/wp-content/uploads/2019/09/4714a035230f599a0a58cd16d2571b5d6b269f77.jpg\");\n  background-repeat: no-repeat;\n  background-size: cover;\n  color: #dbdada;\n}\n\n#app {\n  height: 100%;\n}\n\n#content {\n  height: 90%;\n}\n\n.tabContent {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100%;\n}\n\nnav {\n  display: flex;\n  align-items: center;\n  height: 5em;\n  justify-content: space-evenly;\n  background-color: #1c3a5c;\n}\n\nh1 {\n  font-family: \"Chango\", cursive;\n  font-size: 2em;\n  color: #f094b1;\n}\n\n.tabHeader {\n  color: #f094b1;\n  font-family: \"Chango\", cursive;\n  font-size: 3em;\n  text-shadow: 4px 4px #1c3a5c;\n}\n\n.tabs {\n  display: flex;\n  list-style-type: none;\n}\n\n.tabSelect {\n  color: #f094b1;\n}\n\nul {\n  font-size: 1em;\n}\n\nli {\n  padding: 1em;\n}\n\nli:hover {\n  font-weight: bold;\n  color: #f094b1;\n}\n\n.splash {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: black;\n  font-size: 1.5em;\n  font-weight: bold;\n  border-radius: 5px;\n  opacity: 0.5;\n  padding: 1em;\n  width: 50%;\n}\n\nimg {\n  height: 10em;\n  width: 10em;\n  border-radius: 5px;\n}\nbutton {\n  border: none;\n  border-radius: 5px;\n  font-size: 1.5em;\n  color: #1c3a5c;\n  background-color: #dbdada;\n  font-family: \"Chango\", cursive;\n  height: 2em;\n}\nbutton:hover {\n  color: #f094b1;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
