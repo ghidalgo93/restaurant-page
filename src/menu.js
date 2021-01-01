@@ -1,5 +1,5 @@
 import contentModule from "./contentModule";
-import sashimi from "./menuItems/sashimi";
+import ramen from "./menuItems/ramen";
 import nigiri from "./menuItems/nigiri";
 import rolls from "./menuItems/rolls";
 
@@ -7,46 +7,39 @@ const menu = (() => {
   const prototype = contentModule();
   const { contentDiv } = prototype;
 
-  const createContent = () => {
-    const menuContent = document.createElement("div");
-    menuContent.id = "menu-content";
-
+  const addContent = (() => {
     const menuList = document.createElement("ul");
-    menuList.id = "menu-list";
+    menuList.id = "menu-tabs";
     menuList.classList.add("tabs");
-    const sashimiTab = document.createElement("li");
-    sashimiTab.textContent = "Sashimi";
+    menuList.classList.add("tabHeader");
+    const ramenTab = document.createElement("li");
+    ramenTab.textContent = "Ramen";
     const rollsTab = document.createElement("li");
     rollsTab.textContent = "Rolls";
     const nigiriTab = document.createElement("li");
     nigiriTab.textContent = "Nigiri";
-    menuList.appendChild(sashimiTab);
+    menuList.appendChild(ramenTab);
     menuList.appendChild(nigiriTab);
     menuList.appendChild(rollsTab);
 
-    const menuWindow = document.createElement("div");
-    menuWindow.id = "menu-window";
+    const splash = document.createElement("div");
+    splash.classList.add("splash");
 
-    const sashimiContent = sashimi();
-    sashimiContent.loadInto(menuWindow);
+    const ramenContent = ramen();
+    ramenContent.loadInto(splash);
     const nigiriContent = nigiri();
-    nigiriContent.loadInto(menuWindow);
+    nigiriContent.loadInto(splash);
     const rollsContent = rolls();
-    rollsContent.loadInto(menuWindow);
+    rollsContent.loadInto(splash);
 
-    sashimiContent.show(menuWindow);
+    ramenContent.show(splash);
 
-    sashimiTab.onmouseenter = () => sashimiContent.show(menuWindow);
-    nigiriTab.onmouseenter = () => nigiriContent.show(menuWindow);
-    rollsTab.onmouseenter = () => rollsContent.show(menuWindow);
+    ramenTab.onclick = () => ramenContent.show(splash);
+    nigiriTab.onclick = () => nigiriContent.show(splash);
+    rollsTab.onclick = () => rollsContent.show(splash);
 
-    menuContent.appendChild(menuList);
-    menuContent.appendChild(menuWindow);
-    return menuContent;
-  };
-
-  const addContent = (() => {
-    contentDiv.appendChild(createContent());
+    contentDiv.appendChild(menuList);
+    contentDiv.appendChild(splash);
   })();
 
   return { ...prototype };

@@ -13,12 +13,15 @@ const pageInit = (() => {
     tabs.classList.add("tabs");
     const aboutTab = document.createElement("li");
     aboutTab.id = "about-tab";
+    aboutTab.classList.add("tab");
     aboutTab.textContent = "About";
     const menuTab = document.createElement("li");
     menuTab.id = "menu-tab";
+    menuTab.classList.add("tab");
     menuTab.textContent = "Menu";
     const contactTab = document.createElement("li");
     contactTab.id = "contact-tab";
+    contactTab.classList.add("tab");
     contactTab.textContent = "Contact";
     tabs.appendChild(aboutTab);
     tabs.appendChild(menuTab);

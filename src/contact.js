@@ -4,8 +4,14 @@ const contact = (() => {
   const prototype = contentModule();
   const { contentDiv } = prototype;
 
-  const createContent = () => {
-    const contactContent = document.createElement("div");
+  const addContent = (() => {
+    const contactUs = document.createElement("div");
+    contactUs.textContent = "Contact Us";
+    contactUs.classList.add("tabHeader");
+
+    const splash = document.createElement("div");
+    splash.classList.add("splash");
+
     const contactList = document.createElement("ul");
 
     const address = document.createElement("li");
@@ -18,12 +24,9 @@ const contact = (() => {
     contactList.appendChild(hours);
     contactList.appendChild(phone);
 
-    contactContent.appendChild(contactList);
-    return contactContent;
-  };
-
-  const addContent = (() => {
-    contentDiv.appendChild(createContent());
+    splash.appendChild(contactList);
+    contentDiv.appendChild(contactUs);
+    contentDiv.appendChild(splash);
   })();
 
   return { ...prototype };

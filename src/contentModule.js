@@ -11,7 +11,9 @@ const contentModule = () => {
     children.forEach((child) => {
       child.style.display = "none";
     });
-    contentDiv.style.display = "block";
+    contentDiv.style.display = "flex";
+    contentDiv.style.flexFlow = "column";
+    contentDiv.classList.add("tabContent");
   };
   return { contentDiv, loadInto, show };
 };

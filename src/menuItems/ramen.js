@@ -1,29 +1,28 @@
 import contentModule from "../contentModule";
 
-const nigiri = () => {
-  const imgUrl =
-    "https://i.pinimg.com/originals/54/ec/8a/54ec8a6f8c691e76a10b29e70d00683b.gif";
+const ramen = () => {
+  const imgUrl = "https://cdn.wallpapersafari.com/59/76/PQ18L5.jpg";
   const prototype = contentModule();
   const { contentDiv } = prototype;
-
   const createContent = () => {
     const content = document.createElement("div");
     content.style.display = "flex";
 
     const list = document.createElement("ul");
-    const salmon = document.createElement("li");
-    salmon.textContent = "Salmon";
-    const tuna = document.createElement("li");
-    tuna.textContent = "Tuna";
-    const whitefin = document.createElement("li");
-    whitefin.textContent = "White Fin";
-    list.appendChild(salmon);
-    list.appendChild(tuna);
-    list.appendChild(whitefin);
+
+    const miso = document.createElement("li");
+    miso.textContent = "Miso broth";
+    const tonkotsu = document.createElement("li");
+    tonkotsu.textContent = "Tonkotsu, pork bone broth";
+    const onomichi = document.createElement("li");
+    onomichi.textContent = "Onomichi, fish and shoyu broth";
+    list.appendChild(miso);
+    list.appendChild(tonkotsu);
+    list.appendChild(onomichi);
 
     const img = document.createElement("img");
     img.src = imgUrl;
-    img.alt = "nigiri";
+    img.alt = "ramen dawg";
 
     content.appendChild(img);
     content.appendChild(list);
@@ -36,4 +35,4 @@ const nigiri = () => {
   return { ...prototype };
 };
 
-export default nigiri;
+export default ramen;

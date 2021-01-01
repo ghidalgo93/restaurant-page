@@ -6,6 +6,10 @@ const helpers = (() => {
     });
   };
   return { hideChildren };
+
+  const tabSelect = () => {
+    // return all tab colors to
+  };
 })();
 
 export default helpers;

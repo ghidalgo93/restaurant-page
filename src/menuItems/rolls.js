@@ -1,7 +1,8 @@
 import contentModule from "../contentModule";
 
 const rolls = () => {
-  const imgUrl = "https://akisushiusa.com/files/2019/01/IMG-2006_(003).JPG";
+  const imgUrl =
+    "https://i.pinimg.com/originals/9d/1c/cf/9d1ccfcdeb976ba07e1e6565a5bd6654.png";
   const prototype = contentModule();
   const { contentDiv } = prototype;
 
@@ -26,8 +27,6 @@ const rolls = () => {
     const img = document.createElement("img");
     img.src = imgUrl;
     img.alt = "rolls";
-    img.style.height = "30em";
-    img.style.width = "30em";
 
     content.appendChild(img);
     content.appendChild(list);
